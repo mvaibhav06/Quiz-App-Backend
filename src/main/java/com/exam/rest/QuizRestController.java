@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/quiz")
+@CrossOrigin
 public class QuizRestController {
 
     private QuestionService questionService;
@@ -27,5 +28,15 @@ public class QuizRestController {
     public Quiz getQuestionsForQuiz(@RequestParam String category){
 
         return quizService.createQuiz(category);
+    }
+
+    @GetMapping("/")
+    public List<Quiz> getAll(){
+        return quizService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Quiz getQuizbyId(@PathVariable int id){
+        return quizService.getQuizById(id);
     }
 }

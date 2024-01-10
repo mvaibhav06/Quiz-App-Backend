@@ -32,6 +32,18 @@ public class Quiz {
             inverseJoinColumns = @JoinColumn(name = "question_id"))
     private List<Question> questions;
 
+    @OneToOne(mappedBy = "quiz")
+    @JsonIgnore
+    private Result result;
+
+    public Result getResult() {
+        return result;
+    }
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
     public int getId() {
         return id;
     }

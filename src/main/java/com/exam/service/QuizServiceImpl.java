@@ -31,6 +31,7 @@ public class QuizServiceImpl implements QuizService{
     }
 
     @Override
+    @Transactional
     public List<Quiz> getAll() {
         return quizDAO.getAll();
     }
